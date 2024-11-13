@@ -50,3 +50,23 @@ const teamMembers = [
   }
 ];
 
+//Prendo l'elelemento a cui andro ad appendere la card
+const teamContainer = document.getElementById('teamContainer');
+
+//Creo un ciclo per creare i vari div e inserire i dati dei vari menbri del team
+teamMembers.forEach(member => {
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  card.innerHTML = `
+    <img src="${member.img}" alt="${member.name}">
+    <div>
+      <h3>${member.name.toUpperCase()}</h3>
+      <p>${member.role}</p>
+      <a href="mailto:${member.email}">${member.email}</a>
+    </div>
+  `;
+
+  //Inserisco la card del membro del team creata
+  teamContainer.appendChild(card);
+});
